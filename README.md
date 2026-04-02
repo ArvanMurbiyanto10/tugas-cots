@@ -572,3 +572,5 @@ Aplikasi ini berhasil mengimplementasikan konsep CRUD berbasis REST API mengguna
 ## 10. Link Video Presentasi
 
 [MASUKKAN LINK VIDEO DI SINI]
+#   t u g a s - c o t s  
+ 
