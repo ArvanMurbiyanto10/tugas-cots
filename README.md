@@ -15,8 +15,6 @@
 
   <img width="512" height="512" alt="telyu" src="https://github.com/user-attachments/assets/22ae9b17-5e73-48a6-b5dd-281e6c70613e" />
 
-
-
   <br />
   <br />
   <br />
@@ -50,12 +48,11 @@
 
 <hr>
 
-
-
 ## 📖 Deskripsi Aplikasi
+
 Aplikasi **Syariah Komputer** merupakan sistem informasi sederhana berbasis web yang digunakan untuk mengelola data part komputer. Aplikasi ini mengimplementasikan konsep **CRUD (Create, Read, Update, Delete)** menggunakan arsitektur **client-server** dengan pendekatan **REST API**.
 
-Frontend dibangun menggunakan HTML, Bootstrap, dan jQuery, sedangkan backend menggunakan Node.js dengan framework Express.js. Data disimpan sementara dalam memori server (*in-memory storage*) dan dikirim dalam format JSON.
+Frontend dibangun menggunakan HTML, Bootstrap, dan jQuery, sedangkan backend menggunakan Node.js dengan framework Express.js. Data disimpan sementara dalam memori server (_in-memory storage_) dan dikirim dalam format JSON.
 
 ---
 
@@ -82,6 +79,7 @@ Frontend dibangun menggunakan HTML, Bootstrap, dan jQuery, sedangkan backend men
 Aplikasi **Syariah Komputer** merupakan sistem manajemen data part komputer berbasis web yang dibangun menggunakan Node.js dan Express.
 
 Fitur utama:
+
 - Menampilkan data part komputer
 - Menambahkan data baru
 - Mengedit data
@@ -112,11 +110,11 @@ tugas-cots-2311102180/
 
 ### Penjelasan
 
-| File | Keterangan |
-|------|-----------|
-| server.js | Backend Express |
-| public/ | File frontend |
-| assets/ | Gambar dokumentasi |
+| File      | Keterangan         |
+| --------- | ------------------ |
+| server.js | Backend Express    |
+| public/   | File frontend      |
+| assets/   | Gambar dokumentasi |
 
 ---
 
@@ -128,6 +126,7 @@ node server.js
 ```
 
 Akses:
+
 ```
 http://localhost:3000
 ```
@@ -139,70 +138,74 @@ http://localhost:3000
 ### A. server.js
 
 ```javascript
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 const app = express();
 const port = 3000;
 
-app.use(express.json({ limit: '10kb' })); 
-app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+app.use(express.json({ limit: "10kb" }));
+app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 let products = [];
 
-app.get('/api/products', (req, res) => {
-    res.status(200).json({ data: products });
+app.get("/api/products", (req, res) => {
+  res.status(200).json({ data: products });
 });
 
-app.post('/api/products', (req, res) => {
-    const { nama, kategori, harga, stok } = req.body;
-    
-    // Validasi ketat mencegah injeksi data kosong
-    if (!nama || !kategori || !harga || !stok) {
-        return res.status(400).json({ error: "Data part tidak boleh kosong!" });
-    }
+app.post("/api/products", (req, res) => {
+  const { nama, kategori, harga, stok } = req.body;
 
-    const newProduct = {
-        id: Date.now(), 
-        nama, 
-        kategori, 
-        harga: parseInt(harga), 
-        stok: parseInt(stok)
-    };
-    
-    products.push(newProduct);
-    res.status(201).json({ message: "Part berhasil ditambahkan!" });
+  // Validasi ketat mencegah injeksi data kosong
+  if (!nama || !kategori || !harga || !stok) {
+    return res.status(400).json({ error: "Data part tidak boleh kosong!" });
+  }
+
+  const newProduct = {
+    id: Date.now(),
+    nama,
+    kategori,
+    harga: parseInt(harga),
+    stok: parseInt(stok),
+  };
+
+  products.push(newProduct);
+  res.status(201).json({ message: "Part berhasil ditambahkan!" });
 });
 
-app.get('/api/products/:id', (req, res) => {
-    const product = products.find(p => p.id === parseInt(req.params.id));
-    if (!product) return res.status(404).json({ error: "Part tidak ditemukan" });
-    res.status(200).json(product);
+app.get("/api/products/:id", (req, res) => {
+  const product = products.find((p) => p.id === parseInt(req.params.id));
+  if (!product) return res.status(404).json({ error: "Part tidak ditemukan" });
+  res.status(200).json(product);
 });
 
-app.put('/api/products/:id', (req, res) => {
-    const { nama, kategori, harga, stok } = req.body;
-    const index = products.findIndex(p => p.id === parseInt(req.params.id));
-    
-    if (index === -1) {
-        return res.status(404).json({ error: "Part tidak ditemukan" });
-    }
+app.put("/api/products/:id", (req, res) => {
+  const { nama, kategori, harga, stok } = req.body;
+  const index = products.findIndex((p) => p.id === parseInt(req.params.id));
 
-    products[index] = { ...products[index], nama, kategori, harga, stok };
-    res.status(200).json({ message: "Part berhasil diperbarui!" });
+  if (index === -1) {
+    return res.status(404).json({ error: "Part tidak ditemukan" });
+  }
+
+  products[index] = { ...products[index], nama, kategori, harga, stok };
+  res.status(200).json({ message: "Part berhasil diperbarui!" });
 });
 
-app.delete('/api/products/:id', (req, res) => {
-    products = products.filter(p => p.id !== parseInt(req.params.id));
-    res.status(200).json({ message: "Part berhasil dihapus!" });
+app.delete("/api/products/:id", (req, res) => {
+  products = products.filter((p) => p.id !== parseInt(req.params.id));
+  res.status(200).json({ message: "Part berhasil dihapus!" });
 });
 
 app.listen(port, () => {
-    console.log(`[SECURITY-OK] Server Part Komputer berjalan di http://localhost:${port}`);
+  console.log(
+    `[SECURITY-OK] Server Part Komputer berjalan di http://localhost:${port}`,
+  );
 });
 ```
+
 ### B. Index.html
+
 ```
 <!DOCTYPE html>
 <html lang="id">
@@ -210,10 +213,10 @@ app.listen(port, () => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syariah Komputer  Manajemen Part</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" 
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
           rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -223,7 +226,7 @@ app.listen(port, () => {
         <a class="navbar-brand fw-bold fs-4" href="#">
              Syariah Komputer
         </a>
-        
+
         <div class="d-flex align-items-center">
             <span class="badge bg-light text-success border border-light rounded-pill px-3 py-2 shadow-sm">
                 Arnanda Setya Nosa Putra | 2311102180
@@ -233,14 +236,14 @@ app.listen(port, () => {
 </nav>
 
 <div class="container">
-    
+
     <div class="row mb-4">
         <div class="col-12">
             <div class="card border-0 shadow-sm bg-white rounded-3">
                 <div class="card-body p-4">
                     <h2 class="fw-bold text-dark mb-2">Sistem Manajemen Inventaris Part Komputer</h2>
                     <p class="text-secondary mb-0">
-                        Kelola stok produk, harga, dan kategori part komputer secara  
+                        Kelola stok produk, harga, dan kategori part komputer secara
                         real time dan aman.
                     </p>
                 </div>
@@ -285,15 +288,15 @@ app.listen(port, () => {
                 { "data": "id" },
                 { "data": "nama" },
                 { "data": "kategori" },
-                { 
+                {
                     "data": "harga",
                     "render": function(data) {
-                        return new Intl.NumberFormat('id-ID', { 
-                            style: 'currency', currency: 'IDR' 
+                        return new Intl.NumberFormat('id-ID', {
+                            style: 'currency', currency: 'IDR'
                         }).format(data);
                     }
                 },
-                { 
+                {
                     "data": "stok",
                     "render": function(data) {
                         if(data < 5) {
@@ -306,9 +309,9 @@ app.listen(port, () => {
                     "data": null,
                     "render": function(data, type, row) {
                         return `
-                            <button class="btn btn-warning btn-sm btn-edit fw-bold text-dark shadow-sm" 
+                            <button class="btn btn-warning btn-sm btn-edit fw-bold text-dark shadow-sm"
                                     data-id="${row.id}">Edit</button>
-                            <button class="btn btn-danger btn-sm btn-hapus fw-bold shadow-sm" 
+                            <button class="btn btn-danger btn-sm btn-hapus fw-bold shadow-sm"
                                     data-id="${row.id}">Hapus</button>
                         `;
                     }
@@ -329,7 +332,7 @@ app.listen(port, () => {
                     url: `/api/products/${id}`,
                     type: 'DELETE',
                     success: function(res) {
-                        table.ajax.reload(null, false); 
+                        table.ajax.reload(null, false);
                     },
                     error: function() {
                         alert("Gagal menghapus data. Terjadi kesalahan pada server.");
@@ -347,7 +350,9 @@ app.listen(port, () => {
 </body>
 </html>
 ```
+
 ### C. tambah.html
+
 ```
 <!DOCTYPE html>
 <html lang="id">
@@ -355,7 +360,7 @@ app.listen(port, () => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Part Komputer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -400,7 +405,7 @@ app.listen(port, () => {
 <script>
     $('#formTambah').submit(function(e) {
         e.preventDefault();
-        
+
         let payload = {
             nama: $('#nama').val(),
             kategori: $('#kategori').val(),
@@ -426,7 +431,9 @@ app.listen(port, () => {
 </body>
 </html>
 ```
+
 ### D. edit.html
+
 ```
 <!DOCTYPE html>
 <html lang="id">
@@ -434,7 +441,7 @@ app.listen(port, () => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Part Komputer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -480,7 +487,7 @@ app.listen(port, () => {
     $(document).ready(function() {
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
-        
+
         if(id) {
             $.get(`/api/products/${id}`, function(data) {
                 $('#partId').val(data.id);
@@ -496,7 +503,7 @@ app.listen(port, () => {
 
         $('#formEdit').submit(function(e) {
             e.preventDefault();
-            
+
             let payload = {
                 nama: $('#nama').val(),
                 kategori: $('#kategori').val(),
@@ -520,20 +527,25 @@ app.listen(port, () => {
 </body>
 </html>
 ```
+
 ---
 
 ## 6. Alur CRUD
 
 ### Create
+
 User menambahkan data melalui form → dikirim ke server (POST)
 
 ### Read
+
 Data ditampilkan di tabel melalui DataTables
 
 ### Update
+
 User edit data → dikirim ke server (PUT)
 
 ### Delete
+
 User hapus data → request DELETE ke server
 
 ---
@@ -541,15 +553,19 @@ User hapus data → request DELETE ke server
 ## 7. Screenshot Website
 
 ### 1. Halaman Utama
+
 ![](assets/beranda.png)
 
 ### 2. Halaman Tambah
+
 ![](assets/tambah_part.png)
 
 ### 3. Halaman Edit Data
+
 ![](assets/edit_part.png)
 
 ### 4. Halaman Hapus Data
+
 ![](assets/hapus_part.png)
 
 ---
@@ -571,5 +587,8 @@ Aplikasi ini berhasil mengimplementasikan konsep CRUD berbasis REST API mengguna
 
 ## 10. Link Video Presentasi
 
-[MASUKKAN LINK VIDEO DI SINI]
-#
+https://drive.google.com/file/d/1-rHrtdbPlEwTxjcWVmVwYB-V7fNObuob/view?usp=sharing
+
+## 11. Link PPT
+
+https://docs.google.com/presentation/d/1Y1UV3mdicQZMBVWfx1ZAazVHSe3NJE3r/edit?usp=sharing&ouid=105753316097979868087&rtpof=true&sd=true
