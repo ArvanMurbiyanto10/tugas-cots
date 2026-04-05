@@ -76,7 +76,7 @@ Frontend dibangun menggunakan HTML, Bootstrap, dan jQuery, sedangkan backend men
 
 ## 2. Deskripsi Aplikasi
 
-Aplikasi **Arvan Hikin** merupakan sistem manajemen data part komputer berbasis web yang dibangun menggunakan Node.js dan Express.
+Aplikasi **Arvan Hiking** merupakan sistem manajemen data part komputer berbasis web yang dibangun menggunakan Node.js dan Express.
 
 Fitur utama:
 
