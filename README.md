@@ -22,8 +22,8 @@
   <h3>Disusun Oleh :</h3>
 
   <p>
-    <strong>Arnanda Setya Nosa Putra</strong><br>
-    <strong>2311102180</strong><br>
+    <strong>Arvan Murbiyanto</strong><br>
+    <strong>2311102074</strong><br>
     <strong>S1 IF-11-04</strong>
   </p>
 
@@ -50,7 +50,7 @@
 
 ## 📖 Deskripsi Aplikasi
 
-Aplikasi **Syariah Komputer** merupakan sistem informasi sederhana berbasis web yang digunakan untuk mengelola data part komputer. Aplikasi ini mengimplementasikan konsep **CRUD (Create, Read, Update, Delete)** menggunakan arsitektur **client-server** dengan pendekatan **REST API**.
+Aplikasi **Arvan Hiking** merupakan sistem informasi sederhana berbasis web yang digunakan untuk mengelola data part komputer. Aplikasi ini mengimplementasikan konsep **CRUD (Create, Read, Update, Delete)** menggunakan arsitektur **client-server** dengan pendekatan **REST API**.
 
 Frontend dibangun menggunakan HTML, Bootstrap, dan jQuery, sedangkan backend menggunakan Node.js dengan framework Express.js. Data disimpan sementara dalam memori server (_in-memory storage_) dan dikirim dalam format JSON.
 
@@ -76,7 +76,7 @@ Frontend dibangun menggunakan HTML, Bootstrap, dan jQuery, sedangkan backend men
 
 ## 2. Deskripsi Aplikasi
 
-Aplikasi **Syariah Komputer** merupakan sistem manajemen data part komputer berbasis web yang dibangun menggunakan Node.js dan Express.
+Aplikasi **Arvan Hikin** merupakan sistem manajemen data part komputer berbasis web yang dibangun menggunakan Node.js dan Express.
 
 Fitur utama:
 
@@ -92,7 +92,7 @@ Fitur utama:
 ## 3. Struktur Folder Project
 
 ```bash
-tugas-cots-2311102180/
+tugas-cots-2311102074/
 ├── server.js
 ├── package.json
 ├── public/
