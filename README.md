@@ -8,7 +8,7 @@
   <br />
 
   <h3>TUGAS COTS-1<br>
-  WEB MANAJEMEN PRODUK KOMPUTER "SYARIAH KOMPUTER"
+  Arvan Hiking - Sistem Manajemen Peralatan Outdoor
   </h3>
 
   <br />
@@ -591,4 +591,4 @@ https://drive.google.com/file/d/1-rHrtdbPlEwTxjcWVmVwYB-V7fNObuob/view?usp=shari
 
 ## 11. Link PPT
 
-https://docs.google.com/presentation/d/1Y1UV3mdicQZMBVWfx1ZAazVHSe3NJE3r/edit?usp=sharing&ouid=105753316097979868087&rtpof=true&sd=true
+https://canva.link/9aogpfmpwmsbw9q
