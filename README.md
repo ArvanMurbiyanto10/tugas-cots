@@ -50,7 +50,7 @@
 
 ## 📖 Deskripsi Aplikasi
 
-Aplikasi **Arvan Hiking** merupakan sistem informasi sederhana berbasis web yang digunakan untuk mengelola data part komputer. Aplikasi ini mengimplementasikan konsep **CRUD (Create, Read, Update, Delete)** menggunakan arsitektur **client-server** dengan pendekatan **REST API**.
+Aplikasi **Arvan Hiking** merupakan sistem informasi berbasis web untuk mengelola stok peralatan outdoor dan pendakian. Aplikasi ini sudah menerapkan konsep CRUD (Create, Read, Update, Delete) menggunakan Node.js dan Express.js di sisi backend.
 
 Frontend dibangun menggunakan HTML, Bootstrap, dan jQuery, sedangkan backend menggunakan Node.js dengan framework Express.js. Data disimpan sementara dalam memori server (_in-memory storage_) dan dikirim dalam format JSON.
 
